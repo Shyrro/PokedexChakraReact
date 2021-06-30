@@ -1,14 +1,17 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Switch, Route, Link, useHistory, useLocation } from "react-router-dom";
 import LandingPage from "./components/LandingPage";
 import PokemonList from "./components/PokemonList";
 import PokemonTeam from "./components/PokemonTeam";
 import { Tabs, TabList, TabPanels, Tab } from "@chakra-ui/react";
 
 const Home = () => {
+    const location = useLocation();
+    const paths = ['/', '/team', '/list'];
+    const startingIndex = paths.indexOf(location.pathname);
+
   return (
-    <Router>
-      <Tabs>
+      <Tabs defaultIndex={startingIndex}>
         <TabList>
           <Tab>
             <Link to="/">Landing Page</Link>
@@ -34,7 +37,6 @@ const Home = () => {
           </Switch>
         </TabPanels>
       </Tabs>
-    </Router>
   );
 };
 
