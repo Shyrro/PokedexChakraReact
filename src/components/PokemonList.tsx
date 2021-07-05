@@ -40,7 +40,7 @@ const PokemonList = () => {
           src={item.sprites.other.dream_world.front_default}
           alt={item.id}
         ></Image>
-        <span>{item.name.toUpperCase()}</span>
+        <span className="pokemon-name">{item.name.toUpperCase()}</span>
       </Box>
     ));
   };
@@ -63,7 +63,7 @@ const PokemonList = () => {
   return (
     <div className="layout">
       <Input
-      className="filter-input"
+        className="filter-input"
         size="md"
         width="6 rem"
         placeholder="pokemon name"
